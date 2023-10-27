@@ -20,7 +20,7 @@
 
         % Sciences-Po red banner on bottom of slide
         \node[anchor=south east,inner sep=0pt] at (1\paperwidth,0\paperheight)
-            {\includegraphics[width=\the\paperwidth, height=0.028\paperheight]{img/theme/SciencesPo_red.png}};
+            {\includegraphics[width=\the\paperwidth, height=0.035\paperheight]{img/theme/SciencesPo_red.png}};
 
         % Sciences-Po red banner on left-edge of slide
         \node[anchor=south west,inner sep=0pt] at (0\paperwidth,0\paperheight)
@@ -47,7 +47,7 @@
 
         % Sciences-Po red banner on bottom of slide
         \node[anchor=south east,inner sep=0pt] at (\the\paperwidth,0)
-            {\includegraphics[width=\the\paperwidth, height=0.028\paperheight]{img/theme/SciencesPo_red.png}};
+            {\includegraphics[width=\the\paperwidth, height=0.035\paperheight]{img/theme/SciencesPo_red.png}};
 
         % Sciences-Po red banner on left-edge of slide
         \node[anchor=south west,inner sep=0pt] at (0\paperwidth,0\paperheight)
@@ -86,7 +86,7 @@
 }
 
 
-%%% TITLE FRAME %%%
+%%% TITLE FRAME MANAGEMENT %%%
 \setbeamercolor{structure}{fg=red}
 \setbeamertemplate{frametitle}
 {
@@ -100,7 +100,7 @@
 }
 
 
-%%% TABLE OF CONTENTS %%%%
+%%% TABLE OF CONTENTS MANAGEMENT %%%%
 \setbeamertemplate{section in toc}
 {%
     \leavevmode\leftskip=6ex%
@@ -142,26 +142,23 @@
 
 \setbeamertemplate{caption}{\centering\insertcaption\par}
 
-%%%% FOOTLINE %%%%
+%%%% FOOTLINE MANAGEMENT %%%%
 
 \definecolor{SciencesPoRed}{RGB}{229,35,41}
 \setbeamertemplate{footline}
 {%
-  \setbeamercolor{footlinecolor}{bg=SciencesPoRed,fg=white}
-  \leavevmode%
-  \hbox{
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{footlinecolor}%
-    \inserttitle
-    \end{beamercolorbox}%
-    
-    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{footlinecolor}%
-    \usebeamerfont{author in head/foot}\insertshortauthor
-    \hfill
-    \insertpagenumber
-    \end{beamercolorbox}
-  }%
-  \vskip0pt%
+    \setbeamercolor{footlinecolor}{bg=SciencesPoRed,fg=white}
+    \leavevmode
+    \vbox{
+        \begin{beamercolorbox}[dp=1.25ex,ht=2.75ex]{footlinecolor}%
+            \hspace*{1em}\insertpagenumber\hspace*{1em}\insertsectionhead%
+            \ifx\insertsubsectionhead\@empty\relax\else$\quad\mid\quad$\insertsubsectionhead\fi
+        \end{beamercolorbox}
+      }%
 }
+
+
+
 
 \mode
 <all>

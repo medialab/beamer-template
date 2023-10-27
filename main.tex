@@ -31,7 +31,14 @@
 \AtBeginSection[]
 {
  \begin{frame}[noframenumbering,plain]{Outline}
-    \tableofcontents[currentsection, currentsubsection, hideothersubsections,subsubsectionstyle=show/show/show/hide]
+    \tableofcontents[currentsection, sectionstyle=show/shaded, subsectionstyle=show/hide/hide]
+ \end{frame} 
+}
+
+\AtBeginSubsection[]
+{
+ \begin{frame}[noframenumbering,plain]{Outline}
+    \tableofcontents[currentsection, sectionstyle=show/shaded, currentsubsection, subsectionstyle=show/shaded]
     
  \end{frame} 
 }

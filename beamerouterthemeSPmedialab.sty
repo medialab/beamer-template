@@ -86,7 +86,7 @@
 }
 
 
-%%% TITLE FRAME MANAGEMENT %%%
+%%% TITLE FRAME %%%
 \setbeamercolor{structure}{fg=red}
 \setbeamertemplate{frametitle}
 {
@@ -100,7 +100,7 @@
 }
 
 
-%%% TABLE OF CONTENTS MANAGEMENT %%%%
+%%% TABLE OF CONTENTS %%%%
 \setbeamertemplate{section in toc}
 {%
     \leavevmode\leftskip=6ex%
@@ -142,12 +142,26 @@
 
 \setbeamertemplate{caption}{\centering\insertcaption\par}
 
-%%%% FOOTLINE MANAGEMENT %%%%
+%%%% FOOTLINE %%%%
 
-%\setbeamertemplate{footline}
-
-
-
+\definecolor{SciencesPoRed}{RGB}{229,35,41}
+\setbeamertemplate{footline}
+{%
+  \setbeamercolor{footlinecolor}{bg=SciencesPoRed,fg=white}
+  \leavevmode%
+  \hbox{
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{footlinecolor}%
+    \inserttitle
+    \end{beamercolorbox}%
+    
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{footlinecolor}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+    \hfill
+    \insertpagenumber
+    \end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
 
 \mode
 <all>

@@ -1,0 +1,43 @@
+\documentclass{beamer}
+\input{FrontMatter/preamble.tex}
+\usetheme{SPmedialab}
+
+%%% Modify the presentation's bibliographic details
+\title{Presentation Title}
+\subtitle{Subtitle}
+\date{DD MM YYYY}
+\author[Firstname Lastname]{Firstname Lastname}
+\institute[medialab]
+{
+  médialab\\
+  Sciences Po
+}
+
+%%% Reset the logo of the Partner group
+\def\PartnerLogo{theme/logos/partner-logo.png}
+% If you don't have a partner, set the PartnerLogo count to 0
+% If you have a partner, set the PartnerLogo count to 1
+\setcounter{PartnerLogo}{1}
+
+
+%%% Start of the presentation's content
+\begin{document}
+
+%%% Title slide
+\begin{frame}
+\titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+ \begin{frame}[noframenumbering,plain]{Outline}
+    \tableofcontents[currentsection, currentsubsection, hideothersubsections,subsubsectionstyle=show/show/show/hide]
+    
+ \end{frame} 
+}
+
+\section{Section A}
+\input{Sections/SectionA}
+
+
+\end{document}

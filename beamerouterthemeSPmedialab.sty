@@ -1,0 +1,153 @@
+\mode<presentation>
+
+\setbeamertemplate{background}
+{
+  \begin{tikzpicture}
+        
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+        % Gray arc in bottom-right corner, positioned behind everything
+        \node[anchor=south east,inner sep=0pt, opacity=0.9] at (\the\paperwidth,0)
+            {\includegraphics[width=0.45\textwidth,keepaspectratio]{img/theme/SciencesPo_gray_quart_offcenter.png}};
+
+        % Sciences Po logo in top-left corner
+        \node[anchor=north west,inner sep=0pt] at (0.2,0.98\paperheight)
+            {\includegraphics[width=0.5\textwidth,keepaspectratio]{img/theme/logos/sciences-po-logo.png}};
+
+        % Sciences Po médialab logo in top-right corner
+        \node[anchor=north east,inner sep=0pt] at (0.98\paperwidth,0.98\paperheight)
+            {\includegraphics[width=.33\textwidth,keepaspectratio]{img/theme/logos/medialab-logo.png}};
+
+        % Sciences-Po red banner on bottom of slide
+        \node[anchor=south east,inner sep=0pt] at (1\paperwidth,0\paperheight)
+            {\includegraphics[width=\the\paperwidth, height=0.028\paperheight]{img/theme/SciencesPo_red.png}};
+
+        % Sciences-Po red banner on left-edge of slide
+        \node[anchor=south west,inner sep=0pt] at (0\paperwidth,0\paperheight)
+            {\includegraphics[width=0.01\paperwidth, height=\paperheight]{img/theme/SciencesPo_red.png}};
+
+        % If there's a partner logo, put it in the bottom-left corner opposite médialab
+        \ifnum\value{PartnerLogo}=1
+        {
+            \node[anchor=south west,inner sep=0pt] at (0.02\paperwidth,0.04\paperheight)
+            {\includegraphics[height=0.2\paperheight,keepaspectratio]{\PartnerLogo}};
+        }\fi
+            
+        % Background for frames other than title page
+        \ifnum\thepage>1\relax%
+
+        \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        
+        \node[anchor=south east,inner sep=0pt, opacity=0.3] at (\the\paperwidth,0)
+            {\includegraphics[width=.3\textwidth,keepaspectratio]{img/theme/SciencesPo_gray_quart_offcenter.png}};
+        
+        % Sciences Po médialab logo in top-left corner
+        \node[anchor=north east,inner sep=0pt] at (0.99\paperwidth,0.98\paperheight)
+            {\includegraphics[width=.15\textwidth,keepaspectratio]{img/theme/logos/medialab-logo.png}};
+
+        % Sciences-Po red banner on bottom of slide
+        \node[anchor=south east,inner sep=0pt] at (\the\paperwidth,0)
+            {\includegraphics[width=\the\paperwidth, height=0.028\paperheight]{img/theme/SciencesPo_red.png}};
+
+        % Sciences-Po red banner on left-edge of slide
+        \node[anchor=south west,inner sep=0pt] at (0\paperwidth,0\paperheight)
+            {\includegraphics[width=0.01\paperwidth, height=\paperheight]{img/theme/SciencesPo_red.png}};
+
+        \fi
+  \end{tikzpicture}
+}
+
+\setbeamercolor{section 1 in foot}{fg = gray}
+\setbeamercolor{section 2 in foot}{fg = gray}
+\setbeamerfont{subsection in foot}{size=\tiny}
+\setbeamerfont{section in foot}{size=\scriptsize}
+
+
+%%% TITLE PAGE %%%
+\setbeamertemplate{title page}
+{
+  \setbeamerfont{title}{size=\Huge}
+  \usebeamerfont{title}\inserttitle\par
+
+  \setbeamerfont{subtitle}{size=\Large}
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+  \bigskip
+
+  \setbeamerfont{author}{size=\Large}
+  \usebeamerfont{author}\insertauthor\par
+  \bigskip
+
+  \setbeamerfont{institute}{size=\small}
+  \usebeamerfont{institute}\insertinstitute\par
+
+  \setbeamerfont{date}{size=\small}
+  \usebeamerfont{date}\insertdate\par
+  %\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+}
+
+
+%%% TITLE FRAME MANAGEMENT %%%
+\setbeamercolor{structure}{fg=red}
+\setbeamertemplate{frametitle}
+{
+   \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \begin{beamercolorbox}[sep=0.1cm,wd=\textwidth]{framecolor}
+        \usebeamerfont{frametitle}%
+        \vskip-1ex
+        \hspace{.2em}\insertframetitle \\
+        \vspace{-.8em}\vrule width.8\paperwidth height1pt depth0ex%
+    \end{beamercolorbox}%
+}
+
+
+%%% TABLE OF CONTENTS MANAGEMENT %%%%
+\setbeamertemplate{section in toc}
+{%
+    \leavevmode\leftskip=6ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[fg]{section number projected}%
+    \vrule width2.25ex height1.85ex depth.4ex%
+    \hskip-2.25ex%
+    \hbox to2.25ex{\hfil\color{bg}\Large\inserttocsectionnumber.\hfil}}%
+  \kern1.25ex\hbox{\Large\inserttocsection}
+    
+}
+
+\setbeamertemplate{subsection in toc}
+{
+    \leavevmode\leftskip=10ex%
+  \llap{%
+    \usebeamerfont*{subsection number projected}%
+    \usebeamercolor[fg]{subsection number projected}%
+    \vrule width2.25ex height1.85ex depth.4ex%
+    \hskip-2.25ex%
+    \hbox to2.25ex{\inserttocsubsectionnumber)\hfil}}%
+    \kern1.25ex\hbox{\inserttocsubsection}\par
+}
+
+\setbeamertemplate{subsubsection in toc}
+{
+    \leavevmode\leftskip=17ex%
+  \llap{%
+    \usebeamerfont*{subsubection number projected}%
+    \usebeamercolor[fg]{subsubsection number projected}%
+    \vrule width2.25ex height1.85ex depth.4ex%
+    \hskip-2.25ex%
+    \hbox to2.25ex{\hfil\@alph\inserttocsubsubsectionnumber.\hfil}}\kern1.25ex\inserttocsubsubsection\par
+}
+
+
+\setbeamertemplate{bibliography item}[text]
+
+\setbeamertemplate{caption}{\centering\insertcaption\par}
+
+%%%% FOOTLINE MANAGEMENT %%%%
+
+%\setbeamertemplate{footline}
+
+
+
+
+\mode
+<all>
